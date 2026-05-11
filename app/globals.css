@@ -1,0 +1,372 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   PALETA CHICHA - COLORES FOSFORESCENTES AUTÉNTICOS
+   ===================================================== */
+:root {
+  --c-black:   #080808;
+  --c-dark:    #0d000d;
+  --c-yellow:  #FFE600;
+  --c-fuchsia: #FF006E;
+  --c-green:   #39FF14;
+  --c-cyan:    #00FFFF;
+  --c-orange:  #FF6600;
+  --c-pink:    #FF00AA;
+  --c-purple:  #CC00FF;
+  --c-red:     #FF2200;
+}
+
+/* =====================================================
+   BASE
+   ===================================================== */
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply antialiased;
+    background-color: var(--c-black);
+    color: #ffffff;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+
+  a { @apply transition-colors duration-200; }
+}
+
+/* =====================================================
+   COMPONENTES CHICHA
+   ===================================================== */
+@layer components {
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ---- BOTONES ---- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3
+           font-display font-black rounded-xl
+           transition-all duration-200 text-black;
+    background: var(--c-yellow);
+    border: 2px solid var(--c-yellow);
+    box-shadow: 4px 4px 0px var(--c-fuchsia);
+  }
+  .btn-primary:hover {
+    box-shadow: 6px 6px 0px var(--c-fuchsia), 0 0 20px rgba(255,230,0,0.4);
+    transform: translate(-2px, -2px);
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-6 py-3
+           font-display font-black rounded-xl
+           transition-all duration-200 text-white;
+    background: var(--c-fuchsia);
+    border: 2px solid var(--c-fuchsia);
+    box-shadow: 4px 4px 0px var(--c-yellow);
+  }
+  .btn-accent:hover {
+    box-shadow: 6px 6px 0px var(--c-yellow), 0 0 20px rgba(255,0,110,0.4);
+    transform: translate(-2px, -2px);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3
+           font-display font-black rounded-xl
+           transition-all duration-200 text-white;
+    background: transparent;
+    border: 2px solid var(--c-yellow);
+    box-shadow: 3px 3px 0px var(--c-fuchsia);
+  }
+  .btn-secondary:hover {
+    background: rgba(255,230,0,0.1);
+    box-shadow: 5px 5px 0px var(--c-fuchsia), 0 0 15px rgba(255,230,0,0.3);
+    transform: translate(-2px, -2px);
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center px-6 py-3
+           font-display font-black rounded-xl
+           transition-all duration-200 text-white;
+    background: #25D366;
+    border: 2px solid #25D366;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
+  }
+  .btn-whatsapp:hover {
+    background: #1db954;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.6), 0 0 20px rgba(37,211,102,0.4);
+    transform: translate(-2px, -2px);
+  }
+
+  /* ---- CARDS ---- */
+  .card {
+    background: #111111;
+    border: 2px solid #222222;
+    @apply rounded-2xl transition-all duration-300;
+  }
+  .card:hover {
+    border-color: var(--c-yellow);
+    box-shadow: 4px 4px 0px var(--c-fuchsia), 0 0 20px rgba(255,230,0,0.15);
+    transform: translate(-2px, -2px);
+  }
+
+  .card-chicha {
+    background: #0d0d0d;
+    @apply rounded-2xl transition-all duration-300 border-t-4;
+  }
+  .card-chicha:hover {
+    box-shadow: 0 0 20px rgba(255,230,0,0.15);
+    transform: translateY(-4px);
+  }
+
+  .section { @apply py-16 md:py-24; }
+
+  /* ---- TEXTOS CHICHA ---- */
+
+  /* Texto gradiente multicolor - la firma chicha */
+  .chicha-text {
+    background: linear-gradient(135deg, var(--c-yellow) 0%, var(--c-fuchsia) 50%, var(--c-green) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Texto solo amarillo neón */
+  .text-chicha-yellow {
+    color: var(--c-yellow);
+    text-shadow: 0 0 10px rgba(255,230,0,0.6), 0 0 20px rgba(255,230,0,0.3);
+  }
+
+  /* Texto fuchsia neón */
+  .text-chicha-fuchsia {
+    color: var(--c-fuchsia);
+    text-shadow: 0 0 10px rgba(255,0,110,0.6), 0 0 20px rgba(255,0,110,0.3);
+  }
+
+  /* Texto verde neón */
+  .text-chicha-green {
+    color: var(--c-green);
+    text-shadow: 0 0 10px rgba(57,255,20,0.6);
+  }
+
+  /* EFECTO OUTLINE / STROKE - clásico chicha */
+  .text-outlined-yellow {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--c-yellow);
+    paint-order: stroke fill;
+  }
+  .text-outlined-fuchsia {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--c-fuchsia);
+    paint-order: stroke fill;
+  }
+
+  /* SOMBRA OFFSET - efecto 3D chicha */
+  .text-shadow-chicha {
+    text-shadow:
+      3px 3px 0 var(--c-fuchsia),
+      6px 6px 0 rgba(255, 0, 110, 0.25);
+  }
+  .text-shadow-yellow {
+    text-shadow:
+      3px 3px 0 rgba(255,100,0,0.8),
+      6px 6px 0 rgba(255,100,0,0.3);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--c-yellow), var(--c-fuchsia));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---- BADGES CHICHA ---- */
+  .badge-chicha {
+    @apply inline-flex items-center font-display font-black text-sm px-4 py-1.5 rounded-full;
+    background: var(--c-fuchsia);
+    color: white;
+    border: 2px solid var(--c-yellow);
+    box-shadow: 2px 2px 0 var(--c-yellow);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-yellow {
+    @apply inline-flex items-center font-display font-black text-sm px-4 py-1.5 rounded-full;
+    background: var(--c-yellow);
+    color: #080808;
+    border: 2px solid #080808;
+    box-shadow: 2px 2px 0 var(--c-fuchsia);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ---- SECCIÓN SEPARADORA ---- */
+  .chicha-divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--c-yellow), var(--c-fuchsia), var(--c-green), var(--c-cyan), var(--c-yellow));
+    background-size: 200% 100%;
+  }
+}
+
+/* =====================================================
+   UTILIDADES CHICHA
+   ===================================================== */
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+
+  /* FONDOS CHICHA */
+  .bg-chicha {
+    background-color: var(--c-black);
+    background-image:
+      radial-gradient(circle, rgba(255,230,0,0.06) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255,0,110,0.04) 1px, transparent 1px),
+      radial-gradient(circle, rgba(57,255,20,0.03) 1px, transparent 1px);
+    background-size: 40px 40px, 20px 20px, 60px 60px;
+    background-position: 0 0, 10px 10px, 5px 5px;
+  }
+
+  /* Fondo con rayas diagonales - super chicha */
+  .bg-chicha-stripes {
+    background-color: var(--c-dark);
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 8px,
+      rgba(255,230,0,0.03) 8px,
+      rgba(255,230,0,0.03) 16px
+    );
+  }
+
+  /* Fondo blanco para secciones claras */
+  .bg-light-section {
+    background-color: #f5f5f5;
+  }
+
+  /* BORDES NEÓN CON GLOW */
+  .border-neon-yellow {
+    border: 2px solid var(--c-yellow);
+    box-shadow: 0 0 8px var(--c-yellow), 0 0 16px rgba(255,230,0,0.2), inset 0 0 8px rgba(255,230,0,0.05);
+  }
+  .border-neon-fuchsia {
+    border: 2px solid var(--c-fuchsia);
+    box-shadow: 0 0 8px var(--c-fuchsia), 0 0 16px rgba(255,0,110,0.2);
+  }
+  .border-neon-green {
+    border: 2px solid var(--c-green);
+    box-shadow: 0 0 8px var(--c-green), 0 0 16px rgba(57,255,20,0.2);
+  }
+
+  /* GLOW EN CAJA */
+  .glow-yellow {
+    box-shadow: 0 0 15px rgba(255,230,0,0.4), 0 0 30px rgba(255,230,0,0.2);
+  }
+  .glow-fuchsia {
+    box-shadow: 0 0 15px rgba(255,0,110,0.4), 0 0 30px rgba(255,0,110,0.2);
+  }
+
+  /* ESTRELLA DECORATIVA CSS */
+  .star-row::before {
+    content: '★  ✦  ★  ✦  ★';
+    color: var(--c-yellow);
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    letter-spacing: 0.4rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+  }
+
+  /* RAYAS DE ACENTO */
+  .stripe-yellow {
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--c-yellow),
+      var(--c-yellow) 4px,
+      var(--c-black) 4px,
+      var(--c-black) 14px
+    );
+  }
+  .stripe-fuchsia {
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--c-fuchsia),
+      var(--c-fuchsia) 4px,
+      var(--c-black) 4px,
+      var(--c-black) 14px
+    );
+  }
+
+  /* SERVICE CARD CSS HOVER — replaces JS onMouseEnter/Leave */
+  .sc-gold   { transition: box-shadow 0.2s, transform 0.2s; }
+  .sc-gold:hover   { box-shadow: 4px 4px 0 #FF006E, 0 0 20px rgba(255,230,0,0.2); transform: translate(-3px,-3px); }
+  .sc-fuchsia { transition: box-shadow 0.2s, transform 0.2s; }
+  .sc-fuchsia:hover { box-shadow: 4px 4px 0 #FFE600, 0 0 20px rgba(255,0,110,0.2); transform: translate(-3px,-3px); }
+  .sc-green  { transition: box-shadow 0.2s, transform 0.2s; }
+  .sc-green:hover  { box-shadow: 4px 4px 0 #00FFFF, 0 0 20px rgba(57,255,20,0.2); transform: translate(-3px,-3px); }
+  .sc-cyan   { transition: box-shadow 0.2s, transform 0.2s; }
+  .sc-cyan:hover   { box-shadow: 4px 4px 0 #CC00FF, 0 0 20px rgba(0,255,255,0.2); transform: translate(-3px,-3px); }
+  .sc-red    { transition: box-shadow 0.2s, transform 0.2s; }
+  .sc-red:hover    { box-shadow: 4px 4px 0 #FFE600, 0 0 20px rgba(255,34,0,0.2); transform: translate(-3px,-3px); }
+  .sc-magenta { transition: box-shadow 0.2s, transform 0.2s; }
+  .sc-magenta:hover { box-shadow: 4px 4px 0 #FFE600, 0 0 20px rgba(255,0,170,0.2); transform: translate(-3px,-3px); }
+
+  /* NEGOCIO CARDS */
+  .negocio-card { background: #111111; border: 1px solid #222222; transition: border-color 0.2s, box-shadow 0.2s; }
+  .negocio-c0:hover { border-color: #FFE600; box-shadow: 0 0 12px rgba(255,230,0,0.25); }
+  .negocio-c1:hover { border-color: #FF006E; box-shadow: 0 0 12px rgba(255,0,110,0.25); }
+  .negocio-c2:hover { border-color: #39FF14; box-shadow: 0 0 12px rgba(57,255,20,0.25); }
+  .negocio-c3:hover { border-color: #00FFFF; box-shadow: 0 0 12px rgba(0,255,255,0.25); }
+  .negocio-c4:hover { border-color: #FF6600; box-shadow: 0 0 12px rgba(255,102,0,0.25); }
+  .negocio-c5:hover { border-color: #CC00FF; box-shadow: 0 0 12px rgba(204,0,255,0.25); }
+
+  /* RAZON CARDS */
+  .razon-card { transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
+  .razon-c0:hover { border-color: #FFE600 !important; box-shadow: 0 0 20px rgba(255,230,0,0.25), 4px 4px 0 #FFE600; transform: translate(-3px,-3px); }
+  .razon-c1:hover { border-color: #FF006E !important; box-shadow: 0 0 20px rgba(255,0,110,0.25), 4px 4px 0 #FF006E; transform: translate(-3px,-3px); }
+  .razon-c2:hover { border-color: #39FF14 !important; box-shadow: 0 0 20px rgba(57,255,20,0.25), 4px 4px 0 #39FF14; transform: translate(-3px,-3px); }
+  .razon-c3:hover { border-color: #00FFFF !important; box-shadow: 0 0 20px rgba(0,255,255,0.25), 4px 4px 0 #00FFFF; transform: translate(-3px,-3px); }
+
+  /* FOOTER LINKS */
+  .footer-link-yellow:hover { color: var(--c-yellow) !important; }
+  .footer-link-fuchsia:hover { color: var(--c-fuchsia) !important; }
+  .footer-link-green:hover { color: var(--c-green) !important; }
+
+  /* CAROUSEL CONTROLS */
+  .carousel-btn:hover { border-color: #FFE600 !important; color: #FFE600 !important; }
+}
+
+/* FLOATING WHATSAPP — fuera de @layer para que :hover y @keyframes funcionen */
+.wa-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  background: #25D366;
+  color: white;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: wa-glow 2s ease-in-out infinite alternate;
+}
+.wa-float:hover {
+  transform: scale(1.12);
+  animation: none;
+  box-shadow: 0 6px 30px rgba(37,211,102,0.9);
+}
+
+@keyframes wa-glow {
+  from { box-shadow: 0 4px 15px rgba(37,211,102,0.4); }
+  to   { box-shadow: 0 4px 30px rgba(37,211,102,0.8), 0 0 0 8px rgba(37,211,102,0.12); }
+}
