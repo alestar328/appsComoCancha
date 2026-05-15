@@ -77,7 +77,7 @@ export default function ContactForm() {
             onChange={handleChange}
             placeholder="Pedro García"
             className="w-full px-4 py-3 rounded-xl text-white text-sm font-medium placeholder-gray-600 focus:outline-none focus:ring-2"
-            style={{ background: '#111', border: '1.5px solid #2a2a2a', focusRingColor: 'var(--c-yellow)' }}
+            style={{ background: '#111', border: '1.5px solid #2a2a2a' }}
           />
         </div>
         <div>
