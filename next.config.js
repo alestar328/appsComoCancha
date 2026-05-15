@@ -15,11 +15,6 @@ const nextConfig = {
       },
     ],
   },
-  // Generación estática (SSG) - permite deploy en cualquier hosting estático
-  // Comentar esta línea si se necesita ISR o SSR en producción
-  output: 'export',
-  // Trailing slashes para compatibilidad con hosting estático
-  trailingSlash: true,
 };
 
 module.exports = nextConfig;
