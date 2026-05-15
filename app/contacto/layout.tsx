@@ -12,7 +12,7 @@ import { generatePageMetadata } from '@/lib/seo';
 export const metadata = generatePageMetadata({
   title: 'Contacto',
   description:
-    'Contacta con Hispania Tech para solicitar presupuesto de desarrollo web, ecommerce o aplicaciones Android. Respuesta en menos de 24 horas, sin compromiso.',
+    'Contacta con Apps Como Cancha para solicitar presupuesto de desarrollo web, ecommerce o aplicaciones Android. Respuesta en menos de 24 horas, sin compromiso.',
   path: '/contacto',
   keywords: [
     'contacto desarrollo web',

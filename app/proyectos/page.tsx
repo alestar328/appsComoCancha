@@ -3,7 +3,7 @@ import ProjectCard from '@/components/ProjectCard';
 import { generatePageMetadata } from '@/lib/seo';
 
 /**
- * Página de Proyectos de Hispania Tech
+ * Página de Proyectos de Apps Como Cancha
  *
  * Estado: Placeholder con proyectos de demostración
  * Los proyectos mostrados son ejemplos representativos

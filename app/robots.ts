@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 /**
- * Generador de robots.txt para Hispania Tech
+ * Generador de robots.txt para Apps Como Cancha
  *
  * Next.js genera automáticamente el archivo robots.txt
  * basándose en esta configuración.

@@ -82,7 +82,13 @@ export default function ContactoPage() {
     }
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const res = await fetch('/api/contacto', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error();
       setIsSubmitted(true);
     } catch {
       setError('Hubo un error al enviar. Escríbenos directamente por WhatsApp.');

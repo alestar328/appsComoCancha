@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 /**
- * Generador de Sitemap para Hispania Tech
+ * Generador de Sitemap para Apps Como Cancha
  *
  * Next.js genera automáticamente el archivo sitemap.xml
  * basándose en esta configuración.

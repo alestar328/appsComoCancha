@@ -26,7 +26,8 @@
       "WebFetch(domain:peruanos.nl)",
       "WebFetch(domain:aesthetics.fandom.com)",
       "WebFetch(domain:www.designcomma.blog)",
-      "WebFetch(domain:gregcookland.com)"
+      "WebFetch(domain:gregcookland.com)",
+      "PowerShell(New-Item *)"
     ]
   }
 }
