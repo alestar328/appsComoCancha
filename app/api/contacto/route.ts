@@ -26,21 +26,27 @@ export async function POST(req: NextRequest) {
     otro: 'Otro / No estoy seguro',
   };
 
-  await transporter.sendMail({
-    from: `"Apps Como Cancha" <${process.env.SMTP_USER}>`,
-    to: process.env.SMTP_USER,
-    replyTo: email,
-    subject: `Nuevo contacto: ${nombre}${negocio ? ` — ${negocio}` : ''}`,
-    text: [
-      `Nombre: ${nombre}`,
-      `Email: ${email}`,
-      negocio ? `Negocio: ${negocio}` : '',
-      servicio ? `Servicio: ${servicioLabel[servicio] ?? servicio}` : '',
-      `\nMensaje:\n${mensaje}`,
-    ]
-      .filter(Boolean)
-      .join('\n'),
-  });
+  try {
+    await transporter.sendMail({
+      from: `"Apps Como Cancha" <${process.env.SMTP_USER}>`,
+      to: process.env.SMTP_USER,
+      replyTo: email,
+      subject: `Nuevo contacto: ${nombre}${negocio ? ` — ${negocio}` : ''}`,
+      text: [
+        `Nombre: ${nombre}`,
+        `Email: ${email}`,
+        negocio ? `Negocio: ${negocio}` : '',
+        servicio ? `Servicio: ${servicioLabel[servicio] ?? servicio}` : '',
+        `\nMensaje:\n${mensaje}`,
+      ]
+        .filter(Boolean)
+        .join('\n'),
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('SMTP error:', message);
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 
   return NextResponse.json({ ok: true });
 }
