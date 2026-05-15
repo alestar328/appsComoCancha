@@ -22,39 +22,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      // Página principal - máxima prioridad
       url: BASE_URL,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 1,
-    },
-    {
-      // Página de servicios - alta prioridad
-      url: `${BASE_URL}/servicios`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      // Página de proyectos - actualización frecuente
-      url: `${BASE_URL}/proyectos`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      // Página sobre nosotros
-      url: `${BASE_URL}/sobre`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      // Página de contacto - importante para conversiones
-      url: `${BASE_URL}/contacto`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
     },
   ];
 }
