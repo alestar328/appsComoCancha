@@ -103,7 +103,7 @@ export default function HomePage() {
                 {WA_ICON}
                 Cotizar por WhatsApp
               </a>
-              <a href="#servicios" className="btn-secondary text-lg px-8 py-4">
+              <a href="/#servicios" className="btn-secondary text-lg px-8 py-4">
                 Ver servicios ↓
               </a>
             </div>
@@ -142,7 +142,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <a
-                  href="#contacto"
+                  href="/#contacto"
                   className="text-sm font-display font-black transition-colors"
                   style={{ color: s.accent }}
                 >

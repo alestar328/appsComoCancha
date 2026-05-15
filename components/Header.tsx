@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const navLinks = [
-  { href: '#servicios',   label: 'Servicios' },
-  { href: '#presupuesto', label: 'Presupuesto' },
-  { href: '#proyectos',   label: 'Proyectos' },
-  { href: '#contacto',    label: 'Contacto' },
+  { href: '/#servicios',   label: 'Servicios' },
+  { href: '/#presupuesto', label: 'Presupuesto' },
+  { href: '/#proyectos',   label: 'Proyectos' },
+  { href: '/#contacto',    label: 'Contacto' },
 ];
 
 export default function Header() {
@@ -65,7 +65,7 @@ export default function Header() {
 
           {/* CTA desktop */}
           <div className="hidden md:flex">
-            <a href="#contacto" className="btn-primary text-sm px-5 py-2.5">
+            <a href="/#contacto" className="btn-primary text-sm px-5 py-2.5">
               ¡Cotiza Gratis!
             </a>
           </div>
