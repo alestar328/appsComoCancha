@@ -3,7 +3,7 @@ import { Baloo_2, Nunito } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { baseMetadata, organizationJsonLd } from '@/lib/seo';
+import { baseMetadata, localBusinessJsonLd, servicesJsonLd, faqJsonLd } from '@/lib/seo';
 
 const baloo = Baloo_2({
   subsets: ['latin'],
@@ -31,9 +31,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+        {servicesJsonLd.map((schema, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       </head>
       <body className="font-sans min-h-screen flex flex-col">
