@@ -8,10 +8,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Faltan campos obligatorios.' }, { status: 400 });
   }
 
+  // 465 = SMTPS (TLS directo). 587 y 25 = STARTTLS, que exige secure:false.
+  const smtpPort = Number(process.env.SMTP_PORT) || 465;
+
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),
-    secure: true,
+    port: smtpPort,
+    secure: smtpPort === 465,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASSWORD,
