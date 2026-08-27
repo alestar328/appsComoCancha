@@ -29,10 +29,17 @@ export async function POST(req: NextRequest) {
     otro: 'Otro / No estoy seguro',
   };
 
+  // CONTACT_TO admite varios destinatarios separados por coma; si no existe,
+  // el correo va al propio buzon que autentica.
+  const destinatarios = (process.env.CONTACT_TO || process.env.SMTP_USER || '')
+    .split(',')
+    .map((d) => d.trim())
+    .filter(Boolean);
+
   try {
     await transporter.sendMail({
       from: `"Apps Como Cancha" <${process.env.SMTP_USER}>`,
-      to: process.env.SMTP_USER,
+      to: destinatarios,
       replyTo: email,
       subject: `Nuevo contacto: ${nombre}${negocio ? ` — ${negocio}` : ''}`,
       text: [
@@ -48,7 +55,7 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.error('SMTP error:', message);
-    return NextResponse.json({ error: message }, { status: 500 });
+    return NextResponse.json({ error: 'No se pudo enviar el mensaje.' }, { status: 500 });
   }
 
   return NextResponse.json({ ok: true });
